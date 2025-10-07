@@ -10,6 +10,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/imtiyazkumar/students-api/cmd/students-api/http/handlers/student"
 	"github.com/imtiyazkumar/students-api/internal/config"
 )
 
@@ -26,9 +27,7 @@ func main() {
 		w.Write([]byte("ok"))
 	})
 
-	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome to students api"))
-	})
+	router.HandleFunc("POST /api/students", student.New())
 
 	// Create the HTTP server
 	server := &http.Server{
