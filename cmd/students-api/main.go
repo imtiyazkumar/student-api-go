@@ -37,6 +37,8 @@ func main() {
 
 	slog.Info("Starting server...", slog.String("address", cfg.HTTPServer.Addr))
 
+	//setup storage/database
+
 	//gracefull shutdown
 	quit := make(chan os.Signal, 1)
 
